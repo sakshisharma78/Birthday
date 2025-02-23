@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Birthday Wish! 🎂</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* Background Animation */
+body {
+background: linear-gradient(135deg, #ff758c, #ff7eb3, #ff9a9e, #fad0c4);
+background-size: 400% 400%;
+animation: gradientBG 6s infinite alternate;
+text-align: center;
+color: white;
+font-family: 'Great Vibes', cursive;
+padding: 20px;
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+position: relative;
+}
+
+@keyframes gradientBG {
+0% { background-position: 0% 50%; }
+100% { background-position: 100% 50%; }
+}
+
+/* Wish Box */
+.wish-box {
+background: rgba(0, 0, 0, 0.5);
+padding: 20px;
+border-radius: 15px;
+max-width: 80%;
+font-size: 1.8rem;
+line-height: 1.8;
+box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.7);
+animation: glowText 2s infinite alternate;
+}
+
+@keyframes glowText {
+0% { box-shadow: 0px 0px 20px rgba(255, 105, 180, 0.7); }
+100% { box-shadow: 0px 0px 40px rgba(255, 182, 193, 1); }
+}
+
+/* Heading Animation */
+h1 {
+font-size: 3rem;
+text-shadow: 3px 3px 20px gold;
+animation: bounce 2s infinite alternate, glowText 2s infinite alternate;
+}
+
+@keyframes bounce {
+0% { transform: translateY(-5px); }
+100% { transform: translateY(5px); }
+}
+
+/* Special Animated Text */
+.highlight {
+font-size: 2.5rem;
+font-weight: bold;
+background: linear-gradient(90deg, #ffdd57, #ff66b2);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow: 0px 0px 20px rgba(255, 165, 0, 0.8);
+animation: glowText 2s infinite alternate;
+}
+
+/* Go Back Button */
+.back-btn {
+background: gold;
+padding: 12px 25px;
+font-size: 1.5rem;
+border: none;
+cursor: pointer;
+margin-top: 20px;
+border-radius: 15px;
+font-weight: bold;
+color: black;
+transition: 0.4s ease;
+box-shadow: 0px 0px 20px rgba(255, 165, 0, 0.7);
+}
+
+.back-btn:hover {
+background: orange;
+transform: scale(1.1);
+box-shadow: 0px 0px 30px rgba(255, 140, 0, 1);
+}
+
+/* Falling Emojis */
+.falling {
+position: absolute;
+font-size: 2rem;
+animation: fall linear infinite, fadeInOut 3s infinite alternate;
+opacity: 0.8;
+}
+
+@keyframes fall {
+from { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 1; }
+to { transform: translateY(100vh) rotate(360deg) scale(1.5); opacity: 0; }
+}
+
+@keyframes fadeInOut {
+0% { opacity: 0.5; }
+100% { opacity: 1; }
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+.wish-box { font-size: 1.2rem; }
+h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Birthday Wish Box -->
+<div class="wish-box">
+<h1>🎂 <span class="highlight">Happy Birthday My Love, Meri Jaan! 💖</span> 🎂</h1>
+<p>
+ so Today is your special day, meri jaan! 😘  
+You are the moonlight in my darkest nights🌙✨,  
+The **heartbeat to my soul** 💖🎶,  
+And the **magic in my world** 🌸💫.  
+May your life be filled with **endless love, success, and happiness**. 🎊🎈  
+You deserve all the beauty this world has to offer.  
+Keep **shining & smiling always**! 😍🔥💃
+happy Birthday my love thank you for coming my life i dont know kaise kan mere liye tu itni important hui tera khayal iss dil m humesha rehta h ko kehta ki ek tarfa humesha galt rehta h tu mat kar ikraar fir tu tujhe chahunga tere liyr m fariste asman se bulaunga tu pyaar kare na kare  pyaar m hadd se guar jaunga chahe tu mere sath rahe na kare m mera pyaar umar bhar nibhaunga ye tera intezaar umar bhar kar jaunga i love you more yaar🫀🫀❤️❤️❤️‍🔥❤️‍🔥
+</p>
+</div>
+
+<!-- Go Back Button -->
+<button class="back-btn" onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+window.history.back();
+}
+
+// Falling Emoji Effect (Now Randomized Across Screen)
+function createFallingElement() {
+const element = document.createElement("div");
+const emojis = ["💖", "🌸", "✨", "🎉", "🎂", "💞", "😍", "🎊"];
+element.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+element.classList.add("falling");
+element.style.left = Math.random() * 100 + "vw"; // Spread across full width
+element.style.animationDuration = Math.random() * 3 + 2 + "s";
+element.style.fontSize = Math.random() * 1.5 + 1.5 + "rem";
+document.body.appendChild(element);
+
+setTimeout(() => {
+element.remove();
+}, 5000);
+}
+
+setInterval(createFallingElement, 100); // Faster emoji rain effect
+</script>
+
+</body>
+</html>

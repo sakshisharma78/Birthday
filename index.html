@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sparkle! 🎉</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+        /* Global Styling */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Great Vibes', cursive;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Background Text */
+        .bg-text {
+            position: absolute;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            padding: 10px;
+            z-index: -1;
+            user-select: none;
+            animation: float 10s infinite alternate ease-in-out;
+        }
+
+        .bg-text span {
+            margin: 5px;
+            opacity: 0.7;
+            transition: transform 0.5s ease;
+        }
+
+        .bg-text span:hover {
+            transform: scale(1.3);
+            color: gold;
+            opacity: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(-5px); }
+            100% { transform: translateY(5px); }
+        }
+
+        /* Glowing Birthday Text */
+        .message {
+            font-size: 4rem;
+            text-shadow: 3px 3px 20px gold;
+            animation: glow 1.5s infinite alternate, bounce 3s infinite ease-in-out;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 3px 3px 10px gold; }
+            100% { text-shadow: 3px 3px 30px gold; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Click Here Button */
+        .btn {
+            margin-top: 20px;
+            background: gold;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            font-weight: bold;
+            color: black;
+            transition: 0.4s ease;
+        }
+
+        .btn:hover {
+            background: orange;
+            transform: scale(1.1);
+        }
+
+        /* Falling Flowers & Hearts */
+        .falling {
+            position: absolute;
+            font-size: 2rem;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            from { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            .message { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Small Repeated Text -->
+    <div class="bg-text" id="bgTextContainer"></div>
+
+    <!-- Main Birthday Message -->
+    <h1 class="message">✨ Happy Birthday, Sparkle! ✨</h1>
+    <button class="btn" onclick="openWishPage()">Click Here</button>
+
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="happy-birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function openWishPage() {
+            window.location.href = "wish.html";
+        }
+
+        // Flowers & Hearts Rain Effect
+        function createFallingElement() {
+            const element = document.createElement("div");
+            element.innerHTML = Math.random() > 0.5 ? "💖" : "🌸";
+            element.classList.add("falling");
+            element.style.left = Math.random() * 100 + "vw";
+            element.style.animationDuration = Math.random() * 3 + 2 + "s";
+            element.style.fontSize = Math.random() * 1.5 + 1.5 + "rem";
+            document.body.appendChild(element);
+
+            setTimeout(() => {
+                element.remove();
+            }, 5000);
+        }
+
+        setInterval(createFallingElement, 200); // More frequent and smoother effect
+
+        // Background Small Repeated Text Effect
+        function createBackgroundText() {
+            const container = document.getElementById("bgTextContainer");
+            for (let i = 0; i < 300; i++) {
+                const span = document.createElement("span");
+                span.textContent = "Happy Birthday My Love";
+                container.appendChild(span);
+            }
+        }
+        createBackgroundText();
+    </script>
+
+</body>
+</html>
